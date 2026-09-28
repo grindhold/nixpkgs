@@ -1,0 +1,52 @@
+From a2b70dec30214cd2963d5b4c4e2ddb5ff61ad4c8 Mon Sep 17 00:00:00 2001
+From: grindhold <grindhold@gmx.net>
+Date: Mon, 28 Sep 2026 11:15:27 +0200
+Subject: [PATCH] patch out evil audio
+
+---
+ src/audio.c | 3 ++-
+ src/res.c   | 5 +----
+ 2 files changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/src/audio.c b/src/audio.c
+index 1c3f35c..0bd9983 100644
+--- a/src/audio.c
++++ b/src/audio.c
+@@ -9,6 +9,7 @@ extern Mix_Chunk *sounds[AUDIO_SOUND_SIZE];
+ 
+ int nowBgmId = -1;
+ void playBgm(int id) {
++  return;
+   if (nowBgmId == id) return;
+   if (nowBgmId == -1)
+     Mix_PlayMusic(bgms[id], -1);
+@@ -20,7 +21,7 @@ void stopBgm() {
+   Mix_FadeOutMusic(BGM_FADE_DURATION);
+   nowBgmId = -1;
+ }
+-void randomBgm() { playBgm(randInt(1, bgmNums - 1)); }
++void randomBgm() { /*playBgm(randInt(1, bgmNums - 1));*/ }
+ void playAudio(int id) {
+   if (id >= 0) Mix_PlayChannel(-1, sounds[id], 0);
+ }
+diff --git a/src/res.c b/src/res.c
+index ef4945a..76b5a86 100644
+--- a/src/res.c
++++ b/src/res.c
+@@ -56,12 +56,9 @@ const char tilesetPath[TILESET_SIZE][PATH_LEN] = {
+ const char fontPath[] = "res/font/m5x7.ttf";
+ const char textsetPath[] = "res/text.txt";
+ 
+-const int bgmNums = 4;
++const int bgmNums = 1;
+ const char bgmsPath[AUDIO_BGM_SIZE][PATH_LEN] = {
+   "res/audio/main_title.ogg",
+-  "res/audio/bg1.ogg",
+-  "res/audio/bg2.ogg",
+-  "res/audio/bg3.ogg"
+ };
+ const char soundsPath[PATH_LEN] = "res/audio/sounds";
+ const char soundsPathPrefix[PATH_LEN] = "res/audio/";
+-- 
+2.54.0
+

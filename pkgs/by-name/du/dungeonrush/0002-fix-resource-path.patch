@@ -1,0 +1,105 @@
+From a81db07f54e9a25c651016036e703c7f804da852 Mon Sep 17 00:00:00 2001
+From: grindhold <grindhold@gmx.net>
+Date: Mon, 28 Sep 2026 18:15:17 +0200
+Subject: [PATCH 2/2] fix resource path
+
+---
+ src/res.c | 78 +++++++++++++++++++++++++++----------------------------
+ 1 file changed, 39 insertions(+), 39 deletions(-)
+
+diff --git a/src/res.c b/src/res.c
+index 76b5a86..8cb4d14 100644
+--- a/src/res.c
++++ b/src/res.c
+@@ -19,49 +19,49 @@ const int n = SCREEN_WIDTH/UNIT;
+ const int m = SCREEN_HEIGHT/UNIT;
+ 
+ const char tilesetPath[TILESET_SIZE][PATH_LEN] = {
+-    "res/drawable/0x72_DungeonTilesetII_v1_3",
+-    "res/drawable/fireball_explosion1",
+-    "res/drawable/halo_explosion1",
+-    "res/drawable/halo_explosion2",
+-    "res/drawable/fireball",
+-    "res/drawable/floor_spike",
+-    "res/drawable/floor_exit",
+-    "res/drawable/HpMed",
+-    "res/drawable/SwordFx",
+-    "res/drawable/ClawFx",
+-    "res/drawable/Shine",
+-    "res/drawable/Thunder",
+-    "res/drawable/BloodBound",
+-    "res/drawable/arrow",
+-    "res/drawable/explosion-2",
+-    "res/drawable/ClawFx2",
+-    "res/drawable/Axe",
+-    "res/drawable/cross_hit",
+-    "res/drawable/blood",
+-    "res/drawable/SolidFx",
+-    "res/drawable/IcePick",
+-    "res/drawable/IceShatter",
+-    "res/drawable/Ice",
+-    "res/drawable/SwordPack",
+-    "res/drawable/HolyShield",
+-    "res/drawable/golden_cross_hit",
+-    "res/drawable/ui",
+-    "res/drawable/title",
+-    "res/drawable/purple_ball",
+-    "res/drawable/purple_exp",
+-    "res/drawable/staff",
+-    "res/drawable/Thunder_Yellow",
+-    "res/drawable/attack_up",
+-    "res/drawable/powerful_bow"};
+-const char fontPath[] = "res/font/m5x7.ttf";
+-const char textsetPath[] = "res/text.txt";
++    "../share/drawable/0x72_DungeonTilesetII_v1_3",
++    "../share/drawable/fireball_explosion1",
++    "../share/drawable/halo_explosion1",
++    "../share/drawable/halo_explosion2",
++    "../share/drawable/fireball",
++    "../share/drawable/floor_spike",
++    "../share/drawable/floor_exit",
++    "../share/drawable/HpMed",
++    "../share/drawable/SwordFx",
++    "../share/drawable/ClawFx",
++    "../share/drawable/Shine",
++    "../share/drawable/Thunder",
++    "../share/drawable/BloodBound",
++    "../share/drawable/arrow",
++    "../share/drawable/explosion-2",
++    "../share/drawable/ClawFx2",
++    "../share/drawable/Axe",
++    "../share/drawable/cross_hit",
++    "../share/drawable/blood",
++    "../share/drawable/SolidFx",
++    "../share/drawable/IcePick",
++    "../share/drawable/IceShatter",
++    "../share/drawable/Ice",
++    "../share/drawable/SwordPack",
++    "../share/drawable/HolyShield",
++    "../share/drawable/golden_cross_hit",
++    "../share/drawable/ui",
++    "../share/drawable/title",
++    "../share/drawable/purple_ball",
++    "../share/drawable/purple_exp",
++    "../share/drawable/staff",
++    "../share/drawable/Thunder_Yellow",
++    "../share/drawable/attack_up",
++    "../share/drawable/powerful_bow"};
++const char fontPath[] = "../share/font/m5x7.ttf";
++const char textsetPath[] = "../share/text.txt";
+ 
+ const int bgmNums = 1;
+ const char bgmsPath[AUDIO_BGM_SIZE][PATH_LEN] = {
+-  "res/audio/main_title.ogg",
++  "../share/audio/main_title.ogg",
+ };
+-const char soundsPath[PATH_LEN] = "res/audio/sounds";
+-const char soundsPathPrefix[PATH_LEN] = "res/audio/";
++const char soundsPath[PATH_LEN] = "../share/audio/sounds";
++const char soundsPathPrefix[PATH_LEN] = "../share/audio/";
+ // Gloabls
+ int texturesCount;
+ Texture textures[TEXTURES_SIZE];
+-- 
+2.54.0
+
